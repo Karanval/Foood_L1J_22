@@ -58,7 +58,7 @@ func _process(delta):
 		open_micro.visible = false
 		micro = false
 		time += delta
-	if (time > time_wait) :
+	if (not micro) :
 		time = 0
 		closed_micro.visible = false
 		open_micro.visible = true
