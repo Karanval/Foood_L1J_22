@@ -21,14 +21,19 @@ animations = [ {
 "name": "F1",
 "speed": 0.5
 }, {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "F3",
+"speed": 0.5
+}, {
 "frames": [ ExtResource( 4 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "F2",
 "speed": 0.5
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 11 ) ],
 "loop": true,
-"name": "Dropped",
+"name": "F4",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -36,14 +41,9 @@ animations = [ {
 "name": "Dragging",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "F3",
-"speed": 0.5
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 12 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "F4",
+"name": "Dropped",
 "speed": 5.0
 } ]
 
@@ -63,7 +63,6 @@ scale = Vector2( 0.3, 0.3 )
 z_index = 1
 frames = SubResource( 2 )
 animation = "F1"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

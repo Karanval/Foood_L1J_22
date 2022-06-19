@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Perc.ogg-15855562e38e8d483f39b8166a6ee7a2.oggstr"
+
+[deps]
+
+source_file="res://Resources/Sounds/Music/Perc/Perc.ogg"
+dest_files=[ "res://.import/Perc.ogg-15855562e38e8d483f39b8166a6ee7a2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

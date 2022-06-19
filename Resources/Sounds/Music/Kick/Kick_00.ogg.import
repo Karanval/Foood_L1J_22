@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Kick_00.ogg-9b92aab3c27605c30480e4c2da666bf0.oggstr"
+
+[deps]
+
+source_file="res://Resources/Sounds/Music/Kick/Kick_00.ogg"
+dest_files=[ "res://.import/Kick_00.ogg-9b92aab3c27605c30480e4c2da666bf0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

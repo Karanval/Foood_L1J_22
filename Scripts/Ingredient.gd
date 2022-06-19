@@ -11,8 +11,10 @@ onready var face : AnimatedSprite = get_node(face_path)
 var texture: StreamTexture
 var held = false
 var selectable = false
+var change_face = true
 var ingredient_name: String
 var time
+var saved_animation
 
 func _ready():
 	ingredient_name = Recipes.get_ingredient()
@@ -29,11 +31,11 @@ func load_texture(var texture):
 func _process(delta):
 	time += delta
 	var step = time_period / 4
-	if (time >= step and time < step + 0.5):
+	if change_face and (time >= step and time < step + 0.5):
 		face.animation = "F2"
-	elif (time >= step * 2 and time < (step * 2)+0.5):
+	elif change_face and (time >= step * 2 and time < (step * 2)+0.5):
 		face.animation = "F3"
-	elif (time >= step * 3 and time < (step * 3)+0.5):
+	elif change_face and (time >= step * 3 and time < (step * 3)+0.5):
 		face.animation = "F4"
 		
 	if time > time_period:
@@ -44,14 +46,22 @@ func _process(delta):
 		
 func pickup():
 	held = true
+	saved_animation = face.animation
+	face.animation = "Dragging"
 	
-func drop():
+func drop(var animation):
 	held = false
+	if animation == "Dropped":
+		face.animation = animation
+		change_face = false
+	else: 
+		face.animation = saved_animation
 		
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed and selectable:
 			emit_signal("clicked", self)
+			print("clicked")
 
 func _on_Ingredient_mouse_entered():
 	selectable = true
@@ -59,3 +69,4 @@ func _on_Ingredient_mouse_entered():
 
 func _on_Ingredient_mouse_exited():
 	selectable = false
+	
