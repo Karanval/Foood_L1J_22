@@ -34,10 +34,13 @@ func _process(delta):
 	var step = time_period / 4
 	if change_face and (time >= step and time < step + 0.5):
 		face.animation = "F2"
+		$HSlider.value = 3
 	elif change_face and (time >= step * 2 and time < (step * 2)+0.5):
 		face.animation = "F3"
+		$HSlider.value = 2
 	elif change_face and (time >= step * 3 and time < (step * 3)+0.5):
 		face.animation = "F4"
+		$HSlider.value = 1
 		
 	if time > time_period:
 		die()
