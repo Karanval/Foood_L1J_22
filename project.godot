@@ -11,12 +11,14 @@ config_version=4
 [application]
 
 config/name="Foood_l1j_22"
+run/main_scene="res://Levels/Start.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Recipes="*res://Scripts/Recipes.gd"
 TimeChecker="*res://Scripts/TimeChecker.gd"
+Score="*res://Scripts/Score.gd"
 
 [display]
 

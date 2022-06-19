@@ -50,6 +50,7 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="Ingredient" type="Area2D" groups=["pickable"]]
+scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
 face_path = NodePath("Face")
 
@@ -70,6 +71,13 @@ playing = true
 scale = Vector2( 6, 6 )
 z_index = 1
 shape = SubResource( 1 )
+
+[node name="HSlider" type="HSlider" parent="."]
+visible = false
+margin_left = -60.0
+margin_top = 64.0
+margin_right = 60.0
+margin_bottom = 80.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_Ingredient_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Ingredient_mouse_exited"]

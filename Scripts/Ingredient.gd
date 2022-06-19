@@ -3,7 +3,7 @@ extends Area2D
 signal clicked
 signal dead
 
-export var time_period : int = 20
+export var time_period : int = 5
 
 export(NodePath) var face_path
 onready var face : AnimatedSprite = get_node(face_path) 
@@ -15,11 +15,13 @@ var change_face = true
 var ingredient_name: String
 var time
 var saved_animation
+var is_food
 
 func _ready():
 	ingredient_name = Recipes.get_ingredient()
 	texture = Recipes.ingredients[ingredient_name]
-	load_texture(texture)
+	if not is_food:
+		load_texture(texture)
 	time = 0
 	face.animation = "F1"
 
@@ -38,7 +40,7 @@ func _process(delta):
 		face.animation = "F4"
 		
 	if time > time_period:
-		emit_signal("dead")
+		die()
 	
 	if held:
 		global_transform.origin = get_global_mouse_position()
@@ -64,7 +66,12 @@ func _input(event):
 func _on_Ingredient_mouse_entered():
 	selectable = true
 
-
 func _on_Ingredient_mouse_exited():
 	selectable = false
 	
+func die():
+	emit_signal("dead", self)
+	scale.y = 0.1
+#	global_position = Vector2(global_position.x, global_position.y + 35)
+	$Face.visible = false
+	queue_free()

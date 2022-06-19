@@ -19,7 +19,7 @@ func mix():
 	
 	# removing ingredients
 	for ingredient in dropped_ingredients:
-		ingredient.queue_free()	
+		ingredient.die()	
 	
 	dropped_ingredients.clear()
 	dropped_ingredients_names.clear()
