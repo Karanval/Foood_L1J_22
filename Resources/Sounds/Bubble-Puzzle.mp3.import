@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bubble-Puzzle.mp3-63f11b6f91d14939a6e56a138b125678.mp3str"
+
+[deps]
+
+source_file="res://Resources/Sounds/Bubble-Puzzle.mp3"
+dest_files=[ "res://.import/Bubble-Puzzle.mp3-63f11b6f91d14939a6e56a138b125678.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

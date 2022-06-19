@@ -10,12 +10,17 @@ func _ready() :
 	
 	for node in get_tree().get_nodes_in_group("pickable"):
 		node.connect("clicked", self, "_on_pickable_clicked")
+#		node.connect("dead", self, "_on_ingredient_died")
 		
 func _on_pickable_clicked(object):
 	if !held_object:
 		held_object = object
 		initial_position = held_object.global_transform.origin
 		held_object.pickup()
+		
+		
+func _on_ingredient_died(object):
+	print(" died")
 		
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:

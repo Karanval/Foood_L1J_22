@@ -28,9 +28,17 @@ scale = Vector2( 5.7, 5.5 )
 texture = ExtResource( 4 )
 
 [node name="Ingredient" parent="." instance=ExtResource( 1 )]
+position = Vector2( 150, 114 )
+scale = Vector2( 1.2, 1.2 )
+time_period = 30
 
 [node name="Ingredient2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 233, 328 )
+scale = Vector2( 1.2, 1.2 )
+time_period = 30
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
 
 [connection signal="area_entered" from="MixingArea" to="MixingArea" method="_on_MixingArea_area_entered"]
 [connection signal="body_entered" from="MixingArea" to="MixingArea" method="_on_MixingArea_body_entered"]
