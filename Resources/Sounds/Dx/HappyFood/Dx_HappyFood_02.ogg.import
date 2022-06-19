@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Dx_HappyFood_02.ogg-e00f064162dbc69ad48145aa3034796a
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
