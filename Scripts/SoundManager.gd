@@ -13,7 +13,6 @@ var sounds2 = [
 	
 
 func _on_AudioStreamPlayer_finished():
-	print("changing sounds!")
 	$AudioStreamPlayer.stop()
 	$AudioStreamPlayer2.stop()
 	

@@ -24,7 +24,6 @@ func _ready():
 	face.animation = "F1"
 
 func load_texture(var texture):
-	
 	var sprite : Sprite = get_child(0)
 	sprite.texture = texture
 
@@ -61,7 +60,6 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed and selectable:
 			emit_signal("clicked", self)
-			print("clicked")
 
 func _on_Ingredient_mouse_entered():
 	selectable = true

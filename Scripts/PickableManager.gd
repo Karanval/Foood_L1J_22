@@ -18,6 +18,8 @@ var initial_position: Vector2
 
 var micro = false
 var fridge = false
+var time = 0
+var time_wait = 7
 
 func _ready() :
 	
@@ -46,7 +48,7 @@ func _unhandled_input(event):
 			held_object = null
 
 
-func _on_MixingArea_mixing():
+func _on_MixingArea_mixing( a,  b):
 	micro = true
 
 func _process(delta):
@@ -55,7 +57,9 @@ func _process(delta):
 		closed_micro.visible = true
 		open_micro.visible = false
 		micro = false
-	else :
+		time += delta
+	if (time > time_wait) :
+		time = 0
 		closed_micro.visible = false
 		open_micro.visible = true
 		
