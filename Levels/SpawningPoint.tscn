@@ -32,6 +32,7 @@ extra_spacing_char = 7
 font_data = ExtResource( 9 )
 
 [node name="MainScene" type="Node2D"]
+scale = Vector2( 0.7, 0.72 )
 script = ExtResource( 3 )
 monster_area_path = NodePath("scene/Monster")
 mixing_area_path = NodePath("MixingArea")
@@ -136,7 +137,7 @@ z_as_relative = false
 texture = ExtResource( 11 )
 
 [node name="Creator" type="Node2D" parent="scene/MicrowaveOpen"]
-position = Vector2( -935.101, -635.269 )
+position = Vector2( -564.862, -416.746 )
 z_as_relative = false
 script = ExtResource( 2 )
 food_seed = ExtResource( 1 )

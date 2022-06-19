@@ -38,6 +38,7 @@ func create():
 func create_in_fridge(var food_name: String, var pos: Vector2):
 	var food = food_seed.instance()
 	food.time_period = 15
+	food.is_food = false
 	var texture = Recipes.ingredients[food_name]
 	var sprite_node: Sprite = food.get_node("Base")
 	sprite_node.texture = texture
