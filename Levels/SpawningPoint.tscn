@@ -104,15 +104,17 @@ z_index = -1
 texture = ExtResource( 13 )
 
 [node name="Monster" parent="scene" instance=ExtResource( 15 )]
-position = Vector2( 1664, 670 )
+position = Vector2( 1676, 686 )
 
 [connection signal="happyPicked" from="." to="SoundManager2" method="PlayHappySound"]
 [connection signal="start" from="." to="scene/Fridge" method="_on_MainScene_start"]
 [connection signal="area_entered" from="MixingArea" to="MixingArea" method="_on_MixingArea_area_entered"]
 [connection signal="mixing" from="MixingArea" to="." method="_on_MixingArea_mixing"]
+[connection signal="mixing" from="MixingArea" to="SoundManager2" method="_on_MixingArea_mixing"]
 [connection signal="mixing" from="MixingArea" to="scene/MicrowaveOpen/Creator" method="create"]
 [connection signal="pressed" from="TextureButton" to="MixingArea" method="mix"]
 [connection signal="pressed" from="fridgeButton" to="." method="_on_fridgeButton_pressed"]
 [connection signal="pressed" from="fridgeButton" to="fridgeButton" method="_on_fridgeButton_pressed"]
 [connection signal="created_ingredient" from="scene/Fridge" to="." method="created_ingredient"]
 [connection signal="created_ingredient" from="scene/MicrowaveOpen/Creator" to="." method="created_ingredient"]
+[connection signal="eating" from="scene/Monster" to="SoundManager2" method="PlayMonsterSound"]

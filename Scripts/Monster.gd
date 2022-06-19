@@ -1,7 +1,8 @@
 extends Node2D
 
+signal eating
 
-export var time_period : int = 30
+export var time_period : int = 5
 var time = 0
 
 func _on_Monster_area_entered(area):
@@ -14,10 +15,12 @@ func _process(delta):
 
 func eat() :
 	$AnimatedSprite.animation = "eating"
+	emit_signal("eating")
 	Score.score += 10
+	time -= 5
 
 func _on_AnimatedSprite_animation_finished():
 	$AnimatedSprite.animation = "idle"
 
 func die():
-	pass
+	get_tree().change_scene("res://Levels/DEAD.tscn") 

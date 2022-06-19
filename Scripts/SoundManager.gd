@@ -112,3 +112,7 @@ func _on_FearFood_finished():
 	
 func _on_MonsterChew_finished():
 	$MonsterChew.stop()
+
+
+func _on_MixingArea_mixing():
+	PlayFearSound()

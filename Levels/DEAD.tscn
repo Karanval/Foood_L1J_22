@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Resources/Items/EndScreen.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Patrick_Hand/PatrickHand-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/DEAD.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Items/MenuB.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Items/MenuBpresed.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = ExtResource( 2 )
+
+[node name="DEAD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 1303.0
+margin_top = 337.0
+margin_right = 1803.0
+margin_bottom = 475.0
+custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+text = "adsda"
+fit_content_height = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 1338.0
+margin_top = 770.0
+margin_right = 1622.0
+margin_bottom = 894.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
