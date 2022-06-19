@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Dx_HappyFood_01.ogg-891e3bfa598a0b350dcb1576cb6aa5f0.oggstr"
+
+[deps]
+
+source_file="res://Resources/Sounds/Dx/HappyFood/Dx_HappyFood_01.ogg"
+dest_files=[ "res://.import/Dx_HappyFood_01.ogg-891e3bfa598a0b350dcb1576cb6aa5f0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

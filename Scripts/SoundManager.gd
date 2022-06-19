@@ -28,4 +28,6 @@ func _on_AudioStreamPlayer_finished():
 	
 	$AudioStreamPlayer.play()
 	$AudioStreamPlayer2.play()
+	
+
 
