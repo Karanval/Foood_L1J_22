@@ -65,6 +65,7 @@ scale = Vector2( 0.3, 0.3 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "F1"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -73,11 +74,13 @@ z_index = 1
 shape = SubResource( 1 )
 
 [node name="HSlider" type="HSlider" parent="."]
-visible = false
 margin_left = -60.0
-margin_top = 64.0
+margin_top = 67.0
 margin_right = 60.0
-margin_bottom = 80.0
+margin_bottom = 83.0
+max_value = 4.0
+value = 4.0
+editable = false
 
 [connection signal="mouse_entered" from="." to="." method="_on_Ingredient_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Ingredient_mouse_exited"]
