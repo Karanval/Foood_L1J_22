@@ -1,6 +1,7 @@
 extends Node2D
 
 signal start
+signal happyPicked
 
 export(NodePath) var monster_area_path
 onready var monster_area : Area2D = get_node(monster_area_path) 
@@ -39,6 +40,7 @@ func _on_pickable_clicked(object):
 		held_object = object
 		initial_position = held_object.global_transform.origin
 		held_object.pickup()
+		emit_signal("happyPicked")
 		
 		
 func _on_ingredient_died(object):

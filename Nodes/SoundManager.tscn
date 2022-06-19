@@ -16,40 +16,32 @@ script = ExtResource( 2 )
 [node name="Block_1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
-bus = "Block"
 
 [node name="Block_2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
-bus = "Block"
 
 [node name="Kick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-bus = "Block"
 
 [node name="HappyFood" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-bus = "Block"
 
 [node name="Claps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-bus = "Claps"
 
 [node name="Perc" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-bus = "Perc"
 
 [node name="Clockwork_1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
-bus = "Clockwork"
 
 [node name="Clockwork_2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
-bus = "Clockwork"
 
 [connection signal="finished" from="Block_1" to="." method="_on_AudioStreamPlayer_finished"]
 [connection signal="finished" from="Block_2" to="." method="_on_AudioStreamPlayer_finished"]
 [connection signal="finished" from="Kick" to="." method="_on_AudioStreamPlayer_finished"]
-[connection signal="finished" from="HappyFood" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="finished" from="HappyFood" to="." method="_on_HappyFood_finished"]

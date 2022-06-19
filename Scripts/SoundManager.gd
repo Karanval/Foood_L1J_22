@@ -25,6 +25,8 @@ var HappyFood = [
 	preload("res://Resources/Sounds/Dx/HappyFood/Dx_HappyFood_10.ogg")
 	]
 
+func _on_HappyFood_finished():
+	$HappyFood.stop()
 
 func _on_Block_1_finished():
 	$Block_1.stop()
@@ -52,6 +54,3 @@ func PlayHappySound():
 	$HappyFood.stream = happysound
 	$HappyFood.play()
 	
-	
-
-
