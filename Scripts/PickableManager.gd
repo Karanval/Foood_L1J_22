@@ -2,6 +2,7 @@ extends Node2D
 
 signal start
 signal happyPicked
+signal micro_opened
 
 export(NodePath) var monster_area_path
 onready var monster_area : Area2D = get_node(monster_area_path) 
@@ -24,16 +25,10 @@ var initial_position: Vector2
 
 var micro = false
 var time = 0
-var time_wait = 7
+var time_wait = 3
 
 func created_ingredient(node):
 	node.connect("clicked", self, "_on_pickable_clicked")
-
-func setup() :
-	
-	for node in get_tree().get_nodes_in_group("pickable"):
-		node.connect("clicked", self, "_on_pickable_clicked")
-#		node.connect("dead", self, "_on_ingredient_died")
 		
 func _on_pickable_clicked(object):
 	if !held_object:
@@ -53,7 +48,7 @@ func _unhandled_input(event):
 				held_object.drop("Dropped")
 			elif monster_area.overlaps_area(held_object) and held_object.is_food:
 				held_object.die()
-				monster_area.eat()
+				monster_area.eat(held_object)
 			else: 
 				held_object.global_transform.origin = initial_position
 				held_object.drop("")
@@ -62,24 +57,20 @@ func _unhandled_input(event):
 
 func _on_MixingArea_mixing( a,  b):
 	micro = true
+	time = 0
 
 func _process(delta):
-	
 	if (micro):
 		time += delta
 		closed_micro.visible = true
 		open_micro.visible = false
-		micro = false
-	if (not micro):# and time > time_wait) :
+	if (micro and time > time_wait) :
 		time = 0
 		closed_micro.visible = false
 		open_micro.visible = true
+		micro = false
+		emit_signal("micro_opened")
 
 
 func _on_fridgeButton_pressed():
 	emit_signal("start")
-	setup()
-
-
-func _on_Creator_created_ingredient():
-	pass # Replace with function body.

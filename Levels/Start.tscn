@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Start.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Items/PlayBpresed.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Items/MainMenuBackdrop.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Items/PlayB.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/UIAudioManager.gd" type="Script" id=5]
 
 [node name="Start" type="Control"]
 anchor_right = 1.0
@@ -24,4 +25,20 @@ texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 2 )
 
+[node name="TextureButton2" type="TextureButton" parent="."]
+margin_left = 596.0
+margin_top = 139.0
+margin_right = 920.0
+margin_bottom = 827.0
+
+[node name="UIAudioManager" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UIAudioManager"]
+
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureButton" to="UIAudioManager" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureButton2" to="UIAudioManager" method="_on_TextureButton_pressed"]
+[connection signal="finished" from="UIAudioManager/AudioStreamPlayer" to="UIAudioManager" method="_on_AudioStreamPlayer_finished"]

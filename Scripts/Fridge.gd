@@ -6,7 +6,7 @@ export(PackedScene) var food_seed
 var ingredients: Array
 var timer = false
 var time = 0
-var spwan_time = 3
+var spwan_time = 2
 
 func _process(delta):
 	if timer:
@@ -37,7 +37,7 @@ func create():
 
 func create_in_fridge(var food_name: String, var pos: Vector2):
 	var food = food_seed.instance()
-	food.time_period = 30
+	food.time_period = 15
 	var texture = Recipes.ingredients[food_name]
 	var sprite_node: Sprite = food.get_node("Base")
 	sprite_node.texture = texture

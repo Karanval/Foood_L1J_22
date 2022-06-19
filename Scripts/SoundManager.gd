@@ -82,7 +82,7 @@ func PlayHappySound():
 	$HappyFood.play()
 
 
-func PlayFearSound():
+func PlayFearSound(node):
 	var random = RandomNumberGenerator.new()
 	random.randomize()
 	var index = random.randi_range(0, 10)
@@ -91,7 +91,7 @@ func PlayFearSound():
 	$HappyFood.stream = fearsound
 	$HappyFood.play()
 
-	
+var monster_eating = 0
 func PlayMonsterSound():
 	var random = RandomNumberGenerator.new()
 	random.randomize()
@@ -112,7 +112,17 @@ func _on_FearFood_finished():
 	
 func _on_MonsterChew_finished():
 	$MonsterChew.stop()
+	if (monster_eating > 7) :
+		monster_eating = 0
+	else :
+		PlayMonsterSound()
+
+func _process(delta):
+	monster_eating += delta
+
+func _on_MixingArea_mixing(a, b):
+	PlayFearSound(a)
 
 
-func _on_MixingArea_mixing():
-	PlayFearSound()
+func _on_Creator_created_ingredient(node):
+	node.connect("clicked", self, "PlayFearSound")

@@ -18,9 +18,9 @@ var saved_animation
 var is_food
 
 func _ready():
-	ingredient_name = Recipes.get_ingredient()
-	texture = Recipes.ingredients[ingredient_name]
 	if not is_food:
+		ingredient_name = Recipes.get_ingredient()
+		texture = Recipes.ingredients[ingredient_name]
 		load_texture(texture)
 	time = 0
 	face.animation = "F1"
@@ -74,7 +74,5 @@ func _on_Ingredient_mouse_exited():
 	
 func die():
 	emit_signal("dead", self)
-	scale.y = 0.1
-#	global_position = Vector2(global_position.x, global_position.y + 35)
 	$Face.visible = false
 	queue_free()
