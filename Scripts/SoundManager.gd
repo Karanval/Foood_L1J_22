@@ -38,6 +38,20 @@ var FearFood = [
 	preload("res://Resources/Sounds/Dx/FearFood/FearFood_09.ogg"),
 	preload("res://Resources/Sounds/Dx/FearFood/FearFood_10.ogg")
 	]
+	
+var MonsterChew = [
+	preload("res://Resources/Sounds/Dx/Monster/MonsterChew_01.ogg"),
+	preload("res://Resources/Sounds/Dx/Monster/MonsterChew_01.ogg"),
+	preload("res://Resources/Sounds/Dx/Monster/MonsterChew_02.ogg"),
+	preload("res://Resources/Sounds/Dx/Monster/MonsterChew_03.ogg"),
+	preload("res://Resources/Sounds/Dx/Monster/MonsterChew_04.ogg"),
+	preload("res://Resources/Sounds/Dx/Monster/MonsterChew_05.ogg"),
+	preload("res://Resources/Sounds/Dx/Monster/MonsterChew_06.ogg"),
+	preload("res://Resources/Sounds/Dx/Monster/MonsterChew_07.ogg"),
+	preload("res://Resources/Sounds/Dx/Monster/MonsterChew_08.ogg"),
+	preload("res://Resources/Sounds/Dx/Monster/MonsterChew_09.ogg"),
+	preload("res://Resources/Sounds/Dx/Monster/MonsterChew_10.ogg")
+	]
 
 
 func _on_Block_1_finished():
@@ -77,6 +91,16 @@ func PlayFearSound():
 	$HappyFood.stream = fearsound
 	$HappyFood.play()
 
+	
+func PlayMonsterSound():
+	var random = RandomNumberGenerator.new()
+	random.randomize()
+	var index = random.randi_range(1, 10)
+	var monstersound = MonsterChew[index]
+
+	$MonsterChew.stream = monstersound
+	$MonsterChew.play()
+
 
 
 func _on_HappyFood_finished():
@@ -85,3 +109,6 @@ func _on_HappyFood_finished():
 
 func _on_FearFood_finished():
 	$FearFood.stop()
+	
+func _on_MonsterChew_finished():
+	$MonsterChew.stop()

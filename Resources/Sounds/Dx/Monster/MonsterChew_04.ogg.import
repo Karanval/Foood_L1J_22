@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/MonsterChew_04.ogg-4ef48ee408907b1372e4983b21f4f3d8.oggstr"
+
+[deps]
+
+source_file="res://Resources/Sounds/Dx/Monster/MonsterChew_04.ogg"
+dest_files=[ "res://.import/MonsterChew_04.ogg-4ef48ee408907b1372e4983b21f4f3d8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

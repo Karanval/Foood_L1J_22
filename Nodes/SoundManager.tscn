@@ -32,6 +32,10 @@ stream = ExtResource( 9 )
 stream = ExtResource( 10 )
 bus = "Block"
 
+[node name="MonsterChew" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "Block"
+
 [node name="Claps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 
@@ -51,3 +55,4 @@ autoplay = true
 [connection signal="finished" from="Kick" to="." method="_on_AudioStreamPlayer_finished"]
 [connection signal="finished" from="HappyFood" to="." method="_on_HappyFood_finished"]
 [connection signal="finished" from="FearFood" to="." method="_on_FearFood_finished"]
+[connection signal="finished" from="MonsterChew" to="." method="_on_MonsterChew_finished"]
