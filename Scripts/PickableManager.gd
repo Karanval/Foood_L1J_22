@@ -1,5 +1,10 @@
 extends Node2D
 
+signal start
+
+export(NodePath) var monster_area_path
+onready var monster_area : Area2D = get_node(monster_area_path) 
+
 export(NodePath) var mixing_area_path
 onready var mixing_area : Area2D = get_node(mixing_area_path) 
 
@@ -17,11 +22,13 @@ var held_object: Area2D
 var initial_position: Vector2
 
 var micro = false
-var fridge = false
 var time = 0
 var time_wait = 7
 
-func _ready() :
+func created_ingredient(node):
+	node.connect("clicked", self, "_on_pickable_clicked")
+
+func setup() :
 	
 	for node in get_tree().get_nodes_in_group("pickable"):
 		node.connect("clicked", self, "_on_pickable_clicked")
@@ -40,8 +47,11 @@ func _on_ingredient_died(object):
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if held_object and !event.pressed:
-			if mixing_area.overlaps_area(held_object):
+			if mixing_area.overlaps_area(held_object) and not held_object.is_food:
 				held_object.drop("Dropped")
+			elif monster_area.overlaps_area(held_object) and held_object.is_food:
+				held_object.die()
+				monster_area.eat()
 			else: 
 				held_object.global_transform.origin = initial_position
 				held_object.drop("")
@@ -54,21 +64,20 @@ func _on_MixingArea_mixing( a,  b):
 func _process(delta):
 	
 	if (micro):
+		time += delta
 		closed_micro.visible = true
 		open_micro.visible = false
 		micro = false
-		time += delta
-	if (not micro) :
+	if (not micro):# and time > time_wait) :
 		time = 0
 		closed_micro.visible = false
 		open_micro.visible = true
-		
-	if (fridge) :
-		closed_fridge.visible = false
-		open_fridge.visible = true
-		fridge = false
-		
 
 
 func _on_fridgeButton_pressed():
-	fridge = true
+	emit_signal("start")
+	setup()
+
+
+func _on_Creator_created_ingredient():
+	pass # Replace with function body.
