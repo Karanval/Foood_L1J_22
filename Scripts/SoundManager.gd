@@ -24,6 +24,20 @@ var HappyFood = [
 	preload("res://Resources/Sounds/Dx/HappyFood/Dx_HappyFood_09.ogg"),
 	preload("res://Resources/Sounds/Dx/HappyFood/Dx_HappyFood_10.ogg")
 	]
+	
+var FearFood = [
+	preload("res://Resources/Sounds/Dx/FearFood/FearFood_00.ogg"),
+	preload("res://Resources/Sounds/Dx/FearFood/FearFood_01.ogg"),
+	preload("res://Resources/Sounds/Dx/FearFood/FearFood_02.ogg"),
+	preload("res://Resources/Sounds/Dx/FearFood/FearFood_03.ogg"),
+	preload("res://Resources/Sounds/Dx/FearFood/FearFood_04.ogg"),
+	preload("res://Resources/Sounds/Dx/FearFood/FearFood_05.ogg"),
+	preload("res://Resources/Sounds/Dx/FearFood/FearFood_06.ogg"),
+	preload("res://Resources/Sounds/Dx/FearFood/FearFood_07.ogg"),
+	preload("res://Resources/Sounds/Dx/FearFood/FearFood_08.ogg"),
+	preload("res://Resources/Sounds/Dx/FearFood/FearFood_09.ogg"),
+	preload("res://Resources/Sounds/Dx/FearFood/FearFood_10.ogg")
+	]
 
 
 func _on_Block_1_finished():
@@ -43,6 +57,7 @@ func _on_Block_1_finished():
 	$Block_1.play()
 	$Block_2.play()
 	
+	
 func PlayHappySound():
 	var random = RandomNumberGenerator.new()
 	random.randomize()
@@ -53,5 +68,20 @@ func PlayHappySound():
 	$HappyFood.play()
 	
 	
+func PlayFearSound():
+	var random = RandomNumberGenerator.new()
+	random.randomize()
+	var index = random.randi_range(0, 10)
+	var fearsound = FearFood[index]
+
+	$HappyFood.stream = fearsound
+	$HappyFood.play()
+	
+	
+
+func _on_HappyFood_finished():
+	$HappyFood.stop()
 
 
+func _on_FearFood_finished():
+	$FearFood.stop()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/FearFood_00.ogg-72921dd2258d93a80c4a230ec6b85104.oggstr"
+
+[deps]
+
+source_file="res://Resources/Sounds/Dx/FearFood/FearFood_00.ogg"
+dest_files=[ "res://.import/FearFood_00.ogg-72921dd2258d93a80c4a230ec6b85104.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

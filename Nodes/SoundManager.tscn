@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Resources/Sounds/Music/Block/Block_21.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/SoundManager.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Resources/Sounds/Music/Perc/Clockwork_01.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Resources/Sounds/Music/Kick/Kick_00.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Resources/Sounds/Dx/HappyFood/Dx_HappyFood_00.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Resources/Sounds/Dx/FearFood/FearFood_00.ogg" type="AudioStream" id=10]
 
 [node name="SoundManager" type="Node2D"]
 script = ExtResource( 2 )
@@ -29,6 +30,10 @@ bus = "Block"
 
 [node name="HappyFood" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+bus = "Block"
+
+[node name="FearFood" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
 bus = "Block"
 
 [node name="Claps" type="AudioStreamPlayer" parent="."]
@@ -52,4 +57,5 @@ bus = "Clockwork"
 [connection signal="finished" from="Block_1" to="." method="_on_AudioStreamPlayer_finished"]
 [connection signal="finished" from="Block_2" to="." method="_on_AudioStreamPlayer_finished"]
 [connection signal="finished" from="Kick" to="." method="_on_AudioStreamPlayer_finished"]
-[connection signal="finished" from="HappyFood" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="finished" from="HappyFood" to="." method="_on_HappyFood_finished"]
+[connection signal="finished" from="FearFood" to="." method="_on_FearFood_finished"]
