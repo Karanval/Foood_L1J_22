@@ -1,13 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Nodes/Ingredient.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Creator.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/PickableManager.gd" type="Script" id=3]
 [ext_resource path="res://Resources/Items/ButtonPresed.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/MixingArea.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/SoundManager.gd" type="Script" id=6]
-[ext_resource path="res://Resources/Sounds/Music/Block/Block_21.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Resources/Sounds/Music/Block/Block_00.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Nodes/SoundManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/Items/BackDropNew.png" type="Texture" id=9]
 [ext_resource path="res://Nodes/Fridge.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Resources/Items/MicroWOpen.png" type="Texture" id=11]
@@ -57,16 +55,7 @@ margin_bottom = 541.0
 rect_scale = Vector2( 1, 2.5 )
 script = ExtResource( 14 )
 
-[node name="SoundManager" type="Node2D" parent="."]
-script = ExtResource( 6 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager"]
-stream = ExtResource( 8 )
-autoplay = true
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SoundManager"]
-stream = ExtResource( 7 )
-autoplay = true
+[node name="SoundManager2" parent="." instance=ExtResource( 6 )]
 
 [node name="scene" type="Node2D" parent="."]
 z_index = -1
@@ -117,6 +106,7 @@ texture = ExtResource( 13 )
 [node name="Monster" parent="scene" instance=ExtResource( 15 )]
 position = Vector2( 1664, 670 )
 
+[connection signal="happyPicked" from="." to="SoundManager2" method="PlayHappySound"]
 [connection signal="start" from="." to="scene/Fridge" method="_on_MainScene_start"]
 [connection signal="area_entered" from="MixingArea" to="MixingArea" method="_on_MixingArea_area_entered"]
 [connection signal="mixing" from="MixingArea" to="." method="_on_MixingArea_mixing"]
@@ -124,7 +114,5 @@ position = Vector2( 1664, 670 )
 [connection signal="pressed" from="TextureButton" to="MixingArea" method="mix"]
 [connection signal="pressed" from="fridgeButton" to="." method="_on_fridgeButton_pressed"]
 [connection signal="pressed" from="fridgeButton" to="fridgeButton" method="_on_fridgeButton_pressed"]
-[connection signal="finished" from="SoundManager/AudioStreamPlayer" to="SoundManager" method="_on_AudioStreamPlayer_finished"]
-[connection signal="finished" from="SoundManager/AudioStreamPlayer2" to="SoundManager" method="_on_AudioStreamPlayer_finished"]
 [connection signal="created_ingredient" from="scene/Fridge" to="." method="created_ingredient"]
 [connection signal="created_ingredient" from="scene/MicrowaveOpen/Creator" to="." method="created_ingredient"]
